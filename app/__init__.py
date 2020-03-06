@@ -11,7 +11,7 @@ from logging.handlers import SMTPHandler, RotatingFileHandler
 
 
 
-application = Flask(__name__)
+app = Flask(__name__)
 app.config.from_object(Config)
 db = SQLA(app)
 appbuilder = AppBuilder(app, db.session, indexview=MyIndexView, base_template='mybase.html')
