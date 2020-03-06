@@ -24,7 +24,7 @@ class DoctorModelView(ModelView):
         "photo_img_thumbnail",
         "name",
         "specialty",
-        "state",
+        "location",
         "MDL1_class",
         "email",
     ]
@@ -39,7 +39,7 @@ class DoctorModelView(ModelView):
                     "email",
                     "work_phone",
                     "personal_phone",
-                    "render_address",
+                    "street_address",
                 ],
                 "expanded": True,
             },
@@ -57,7 +57,7 @@ class DoctorModelView(ModelView):
     ]
 
     add_fieldsets = [
-        ("Summary", {"fields": ["name","photo", "specialty", 
+        ("Summary", {"fields": ["name","photo", "specialty","location", 
                     "MDL1_class", "bio",]}),
         (
             "Contact Info",
@@ -66,10 +66,7 @@ class DoctorModelView(ModelView):
                     "email",
                     "work_phone",
                     "personal_phone",
-                    "street_address",
-                    "city",
-                    "state",
-                    "postal_code",
+                    "street_address",                    
                 ],
                 "expanded": True,
             },
@@ -87,7 +84,7 @@ class DoctorModelView(ModelView):
     ]
 
     edit_fieldsets = [
-        ("Summary", {"fields": ["name", "photo","specialty", 
+        ("Summary", {"fields": ["name", "photo","specialty","location",
                     "MDL1_class", "bio",]}),
         (
             "Contact Info",
@@ -97,9 +94,6 @@ class DoctorModelView(ModelView):
                     "work_phone",
                     "personal_phone",
                     "street_address",
-                    "city",
-                    "state",
-                    "postal_code",
                 ],
                 "expanded": True,
             },

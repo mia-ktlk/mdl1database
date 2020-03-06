@@ -13,9 +13,7 @@ class Doctor(Model):
     name = Column(String(150), unique=True, nullable=False)    
     specialty = Column(String(564))
     street_address = Column(String(564))
-    city = Column(String(564))
-    state = Column(String(564))
-    postal_code = Column(Integer())
+    location = Column(String(564))
     MDL1_class = Column(Date)
     bio = Column(Text())
     photo = Column(ImageColumn(thumbnail_size=(120, 120, True), size=(600, 600, True)))
@@ -24,10 +22,6 @@ class Doctor(Model):
     publications = Column(Text())
     notes = Column(Text())
     work_phone = Column(String(20))
-
-    @renders('address')
-    def render_address(self):
-        return Markup('<p>'+ self.street_address + '<br>' + self.city + ', ' + self.state + ' ' + str(self.postal_code) + '</p>')
 
     def photo_img(self):
         im = ImageManager()
