@@ -47,7 +47,10 @@ def set_sqlite_pragma(dbapi_connection, connection_record):
     cursor.execute("PRAGMA foreign_keys=ON")
     cursor.close()
 
+def _fk_pragma_on_connect(dbapi_con, con_record):
+    dbapi_con.execute('pragma foreign_keys=ON')
 
-
+from sqlalchemy import event
+event.listen(Engine, 'connect', _fk_pragma_on_connect)
 
 from . import views, models  # noqa
