@@ -2,7 +2,6 @@ import os
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
-
 class Config(object):    
     CSRF_ENABLED = True
     SECRET_KEY = "youwillneverguess"
@@ -15,8 +14,7 @@ class Config(object):
         {"name": "MyOpenID", "url": "https://www.myopenid.com"},
     ]
 
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or "sqlite:///" + os.path.join(basedir, "app.db")
-    # SQLALCHEMY_DATABASE_URI = 'mysql://myapp@localhost/myapp'
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     BABEL_DEFAULT_LOCALE = "en"
     BABEL_DEFAULT_FOLDER = "translations"
