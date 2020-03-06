@@ -9,10 +9,10 @@ from .models import Doctor
 
 class DoctorModelView(ModelView):
     datamodel = SQLAInterface(Doctor, db.session)
-    list_title = "List Entries"
-    show_title = "Show Entries"
-    add_title = "Add Entry"
-    edit_title = "Edit Entries"
+    list_title = "List Doctors"
+    show_title = "Show Doctor"
+    add_title = "Add Doctor"
+    edit_title = "Edit Doctor"
 
     # list_widget = ListThumbnail
 
@@ -30,7 +30,7 @@ class DoctorModelView(ModelView):
     ]
 
     show_fieldsets = [
-        ("Summary", {"fields": ["photo_img", "name", "specialty","organization",
+        ("Summary", {"fields": ["photo_img", "name", "specialty", 
                     "MDL1_class", "bio",]}),
         (
             "Contact Info",
@@ -57,7 +57,7 @@ class DoctorModelView(ModelView):
     ]
 
     add_fieldsets = [
-        ("Summary", {"fields": ["name","photo", "specialty","organization",
+        ("Summary", {"fields": ["name","photo", "specialty", 
                     "MDL1_class", "bio",]}),
         (
             "Contact Info",
@@ -87,7 +87,7 @@ class DoctorModelView(ModelView):
     ]
 
     edit_fieldsets = [
-        ("Summary", {"fields": ["name", "photo","specialty","organization", 
+        ("Summary", {"fields": ["name", "photo","specialty", 
                     "MDL1_class", "bio",]}),
         (
             "Contact Info",

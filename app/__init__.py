@@ -9,30 +9,15 @@ from sqlalchemy.engine import Engine
 from app.index import MyIndexView
 from logging.handlers import SMTPHandler, RotatingFileHandler
 
+
+
 app = Flask(__name__)
 app.config.from_object(Config)
 db = SQLA(app)
 appbuilder = AppBuilder(app, db.session, indexview=MyIndexView, base_template='mybase.html')
 migrate = Migrate(app, db)
 
-logging.basicConfig(format="%(asctime)s:%(levelname)s:%(name)s:%(message)s")
-logging.getLogger().setLevel(logging.DEBUG)
-
-
-@event.listens_for(Engine, "connect")
-def set_sqlite_pragma(dbapi_connection, connection_record):
-    cursor = dbapi_connection.cursor()
-    cursor.execute("PRAGMA foreign_keys=ON")
-    cursor.close()
-
-def create_app(config_class=Config):
-    app = Flask(__name__)
-    app.config.from_object(config_class)
-
-    db.init_app(app)
-    migrate.init_app(app, db)
-
-    if not app.debug and not app.testing:
+if not app.debug and not app.testing:
         if app.config['LOG_TO_STDOUT']:
             stream_handler = logging.StreamHandler()
             stream_handler.setLevel(logging.INFO)
@@ -40,7 +25,7 @@ def create_app(config_class=Config):
         else:
             if not os.path.exists('logs'):
                 os.mkdir('logs')
-            file_handler = RotatingFileHandler('logs/mld1.log',
+            file_handler = RotatingFileHandler('logs/microblog.log',
                                                maxBytes=10240, backupCount=10)
             file_handler.setFormatter(logging.Formatter(
                 '%(asctime)s %(levelname)s: %(message)s '
@@ -51,7 +36,18 @@ def create_app(config_class=Config):
         app.logger.setLevel(logging.INFO)
         app.logger.info('Database startup')
 
-    return app
+logging.basicConfig(format="%(asctime)s:%(levelname)s:%(name)s:%(message)s")
+logging.getLogger().setLevel(logging.DEBUG)
+
+
+
+@event.listens_for(Engine, "connect")
+def set_sqlite_pragma(dbapi_connection, connection_record):
+    cursor = dbapi_connection.cursor()
+    cursor.execute("PRAGMA foreign_keys=ON")
+    cursor.close()
+
+
 
 
 from . import views, models  # noqa

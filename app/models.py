@@ -12,7 +12,6 @@ class Doctor(Model):
     id = Column(Integer, primary_key=True)
     name = Column(String(150), unique=True, nullable=False)    
     specialty = Column(String(564))
-    organization = Column(String(564))
     street_address = Column(String(564))
     city = Column(String(564))
     state = Column(String(564))
