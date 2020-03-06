@@ -30,7 +30,7 @@ class DoctorModelView(ModelView):
     ]
 
     show_fieldsets = [
-        ("Summary", {"fields": ["photo_img", "name", "specialty", 
+        ("Summary", {"fields": ["photo_img", "name", "specialty","organization",
                     "MDL1_class", "bio",]}),
         (
             "Contact Info",
@@ -57,7 +57,7 @@ class DoctorModelView(ModelView):
     ]
 
     add_fieldsets = [
-        ("Summary", {"fields": ["name","photo", "specialty", 
+        ("Summary", {"fields": ["name","photo", "specialty","organization",
                     "MDL1_class", "bio",]}),
         (
             "Contact Info",
@@ -87,7 +87,7 @@ class DoctorModelView(ModelView):
     ]
 
     edit_fieldsets = [
-        ("Summary", {"fields": ["name", "photo","specialty", 
+        ("Summary", {"fields": ["name", "photo","specialty","organization", 
                     "MDL1_class", "bio",]}),
         (
             "Contact Info",
