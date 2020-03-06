@@ -9,10 +9,10 @@ from .models import Doctor
 
 class DoctorModelView(ModelView):
     datamodel = SQLAInterface(Doctor, db.session)
-    list_title = "List Doctors"
-    show_title = "Show Doctor"
-    add_title = "Add Doctor"
-    edit_title = "Edit Doctor"
+    list_title = "List Entries"
+    show_title = "Show Entries"
+    add_title = "Add Entry"
+    edit_title = "Edit Entries"
 
     # list_widget = ListThumbnail
 
