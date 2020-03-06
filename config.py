@@ -16,7 +16,7 @@ class Config(object):
         {"name": "MyOpenID", "url": "https://www.myopenid.com"},
     ]
 
-    SQLALCHEMY_DATABASE_URI = os.environ.get('HEROKU_POSTGRESQL_JADE_URL') 
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') 
     # or "sqlite:///" + os.path.join(basedir, "app.db")
     # SQLALCHEMY_DATABASE_URI = 'mysql://myapp@localhost/myapp'
 
