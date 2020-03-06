@@ -11,7 +11,7 @@ from logging.handlers import SMTPHandler, RotatingFileHandler
 
 
 
-app = Flask(__name__)
+application = Flask(__name__)
 app.config.from_object(Config)
 db = SQLA(app)
 appbuilder = AppBuilder(app, db.session, indexview=MyIndexView, base_template='mybase.html')
@@ -41,11 +41,11 @@ logging.getLogger().setLevel(logging.DEBUG)
 
 
 
-@event.listens_for(Engine, "connect")
-def set_sqlite_pragma(dbapi_connection, connection_record):
-    cursor = dbapi_connection.cursor()
-    cursor.execute("PRAGMA foreign_keys=ON")
-    cursor.close()
+# @event.listens_for(Engine, "connect")
+# def set_sqlite_pragma(dbapi_connection, connection_record):
+#     cursor = dbapi_connection.cursor()
+#     cursor.execute("PRAGMA foreign_keys=ON")
+#     cursor.close()
 
 
 from . import views, models  # noqa
