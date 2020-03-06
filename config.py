@@ -16,7 +16,7 @@ class Config(object):
         {"name": "MyOpenID", "url": "https://www.myopenid.com"},
     ]
 
-    SQLALCHEMY_DATABASE_URI = "sqlite:///" + os.path.join(basedir, "app.db"
+    SQLALCHEMY_DATABASE_URI = "sqlite:///" + os.path.join(basedir, "app.db")
     # 'postgres://usyultspzvwrkg:6a4fe1c08929c8ccbf377ba74c71aacfe1d3b99915015e25d60ae8278a3bd83f@ec2-35-172-85-250.compute-1.amazonaws.com:5432/da3bibjobfc59d'
     # or "sqlite:///" + os.path.join(basedir, "app.db")
     # SQLALCHEMY_DATABASE_URI = 'mysql://myapp@localhost/myapp'
