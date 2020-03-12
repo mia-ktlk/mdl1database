@@ -15,7 +15,7 @@ class DoctorModelView(ModelView):
     add_title = "Add Doctor"
     edit_title = "Edit Doctor"
 
-    list_widget = ListBlock
+    # list_widget = ListBlock
 
     label_columns = {
         "photo_img": "Photo",
