@@ -2,6 +2,7 @@ from flask_appbuilder.charts.views import GroupByChartView
 from flask_appbuilder.models.group import aggregate_count
 from flask_appbuilder.models.sqla.interface import SQLAInterface
 from flask_appbuilder.views import ModelView
+from flask_appbuilder.widgets import ListBlock
 
 from . import appbuilder, db
 from .models import Doctor
@@ -9,12 +10,12 @@ from .models import Doctor
 
 class DoctorModelView(ModelView):
     datamodel = SQLAInterface(Doctor, db.session)
-    list_title = "List Doctors"
+    list_title = "Emily's MDL1 Class"
     show_title = "Show Doctor"
     add_title = "Add Doctor"
     edit_title = "Edit Doctor"
 
-    # list_widget = ListThumbnail
+    list_widget = ListBlock
 
     label_columns = {
         "photo_img": "Photo",

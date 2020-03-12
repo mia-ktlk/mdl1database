@@ -16,7 +16,7 @@ class Config(object):
         {"name": "MyOpenID", "url": "https://www.myopenid.com"},
     ]
    
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or "sqlite:///" + os.path.join(basedir, "app.db")
+    SQLALCHEMY_DATABASE_URI = "postgres://usdfddryzerfmi:210c38db88af6c0c8da52471668fe8ee5b171873a0d8b2fd6e41b035b78968ef@ec2-34-200-101-236.compute-1.amazonaws.com:5432/ddb1sd46as2c0t"
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     BABEL_DEFAULT_LOCALE = "en"
     BABEL_DEFAULT_FOLDER = "translations"
@@ -34,19 +34,19 @@ class Config(object):
     # ------------------------------
     UPLOAD_FOLDER = basedir + "/app/static/uploads/"
     IMG_UPLOAD_FOLDER = basedir + "/app/static/uploads/"
-    IMG_UPLOAD_URL = "/static/uploads/"
+    IMG_UPLOAD_URL = "https://bucketeer-053de98a-2355-4a89-bde9-539d8de498d2.s3.amazonaws.com/public/"
     IMG_SIZE = (150, 150, True)
     AUTH_TYPE = 1
     AUTH_ROLE_ADMIN = "Admin"
     AUTH_ROLE_PUBLIC = "Public"
-    APP_NAME = "Emily’s MDL1 Class"
+    APP_NAME = "CrossFit"
     # APP_THEME = ""  # default
     # APP_THEME = "cerulean.css"      # COOL
     # APP_THEME = "cerulean.css"      # COOL
-    # APP_THEME = "amelia.css"
+    APP_THEME = "amelia.css"
     # APP_THEME = "cosmo.css"
     # APP_THEME = "cyborg.css"       # COOL
-    APP_THEME = "flatly.css"
+    # APP_THEME = "flatly.css"
     # APP_THEME = "journal.css"
     # APP_THEME = "readable.css"
     # APP_THEME = "simplex.css"
